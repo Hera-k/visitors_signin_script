@@ -3,3 +3,4 @@ bs4
 undetected_chromedriver
 lxml
 time
+jupyter
