@@ -1,5 +1,6 @@
 #%%
 from functions import create_driver
+import time
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -39,5 +40,6 @@ password_element.send_keys(password)
 login_button_element = "#app > div > main > div.relative > div.fixed.inset-x-8.sm\:inset-x-8.top-28.sm\:top-28.bottom-28.sm\:bottom-28.mx-auto.max-w-lg.bg-white.rounded-lg.shadow-lg.z-30.max-h-\[90vh\].overflow-y-auto > div > form > div > button > span"
 login_button_click = driver.find_element(By.CSS_SELECTOR, login_button_element)
 driver.execute_script("arguments[0].click();", login_button_click)
+time.sleep(50)
 
 # %%
