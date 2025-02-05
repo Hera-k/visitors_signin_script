@@ -37,29 +37,30 @@ driver.execute_script("arguments[0].click();", element)
 email_address = os.getenv("email_address")
 email_address_element =  driver.find_element(By.XPATH, ("//*[@id='email']"))
 email_address_element.send_keys(email_address)
-# %%
 password = os.getenv("password")
 password_element = driver.find_element(By.XPATH, ("//*[@id='password']"))
 password_element.send_keys(password)
+time.sleep(5)
 #%%
 login_button_element = "#app > div > main > div.relative > div.fixed.inset-x-8.sm\:inset-x-8.top-28.sm\:top-28.bottom-28.sm\:bottom-28.mx-auto.max-w-lg.bg-white.rounded-lg.shadow-lg.z-30.max-h-\[90vh\].overflow-y-auto > div > form > div > button > span"
 login_button_click = driver.find_element(By.CSS_SELECTOR, login_button_element)
 driver.execute_script("arguments[0].click();", login_button_click)
-
+time.sleep(5)
 # %%
 visitors_button = "#app > div > div > main > section > main > div > a:nth-child(14)"
 visitors_element = driver.find_element(By.CSS_SELECTOR, visitors_button)
 driver.execute_script("arguments[0].click();", visitors_element)
+time.sleep(5)
 # %%
 book_a_stay = "#app > div > div > main > section > main > div > a"
 book_a_stay_element = driver.find_element(By.CSS_SELECTOR, book_a_stay)
 driver.execute_script("arguments[0].click();", book_a_stay_element)
+time.sleep(5)
 #%%
 type_of_visit_element = "#type_of_visit"
 type_of_visit_dropdown = Select(driver.find_element(By.CSS_SELECTOR, type_of_visit_element))
 #Select day visit
 type_of_visit_dropdown.select_by_visible_text("Day Visit")
-
 
 # %%
 today = datetime.today().strftime('%Y-%m-%d')
@@ -86,4 +87,9 @@ email_address_element.send_keys(email_address)
 id_number = os.getenv("ID")
 id_number_element = driver.find_element(By.XPATH,"//*[@id='id_number']")
 id_number_element.send_keys(id_number)
+time.sleep(50)
 # %%
+#Book Visit
+#book_visit = "#app > div > div > main > section > main > div > form > div.mt-8 > button"
+#book_visit_element = driver.find_element(By.CSS_SELECTOR, book_visit)
+#book_visit_element.click()#
