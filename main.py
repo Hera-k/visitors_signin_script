@@ -1,7 +1,9 @@
 #%%
+import datetime
+import json
 from functions import create_driver
 import time
-from datetime import date
+from datetime import datetime
 from bs4 import BeautifulSoup # type: ignore
 from selenium.webdriver.common.by import By # type: ignore
 from selenium.webdriver.support.ui import WebDriverWait # type: ignore
@@ -60,7 +62,28 @@ type_of_visit_dropdown.select_by_visible_text("Day Visit")
 
 
 # %%
-today = date.today()
+today = datetime.today().strftime('%Y-%m-%d')
 today_element = driver.find_element(By.XPATH, ("//*[@id='app']/div/div/main/section/main/div/form/div[1]/div[2]/div/div/input"))
 today_element.send_keys(today)
+# %%
+#entering first name
+First_Name = os.getenv("FirstName")
+first_name_element = driver.find_element(By.XPATH, ("/html/body/div/div/div/main/section/main/div/form/div[1]/div[3]/div/div/input"))
+first_name_element.send_keys(First_Name)
+#entering surname
+Surname = os.getenv("Surname")
+surname_element = driver.find_element(By.XPATH, "//*[@id='surname']")
+surname_element.send_keys(Surname)
+#entering the mobile number
+phone_number = os.getenv("MobileNumber")
+phone_number_element = driver.find_element(By.XPATH, "//*[@id='app']/div/div/main/section/main/div/form/div[1]/div[5]/div/div/div/div/input")
+phone_number_element.send_keys(phone_number)
+#entering the email address
+email_address = os.getenv("EmailAddress")
+email_address_element = driver.find_element(By.XPATH, "//*[@id='email']")
+email_address_element.send_keys(email_address)
+#entering id number
+id_number = os.getenv("ID")
+id_number_element = driver.find_element(By.XPATH,"//*[@id='id_number']")
+id_number_element.send_keys(id_number)
 # %%
