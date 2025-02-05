@@ -1,6 +1,7 @@
 #%%
 from functions import create_driver
 import time
+from datetime import date
 from bs4 import BeautifulSoup # type: ignore
 from selenium.webdriver.common.by import By # type: ignore
 from selenium.webdriver.support.ui import WebDriverWait # type: ignore
@@ -58,4 +59,8 @@ type_of_visit_dropdown = Select(driver.find_element(By.CSS_SELECTOR, type_of_vis
 type_of_visit_dropdown.select_by_visible_text("Day Visit")
 
 
+# %%
+today = date.today()
+today_element = driver.find_element(By.XPATH, ("//*[@id='app']/div/div/main/section/main/div/form/div[1]/div[2]/div/div/input"))
+today_element.send_keys(today)
 # %%
